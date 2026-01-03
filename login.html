@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YIIPI — Log In</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .form-container {
+      max-width: 400px;
+      margin: 80px auto;
+      background: var(--card);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      animation: slideIn 0.6s ease;
+    }
+    @keyframes slideIn {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    .form-container h2 {margin-bottom: 20px; text-align: center;}
+    .form-group {margin-bottom: 16px;}
+    .form-group label {display: block; margin-bottom: 6px; font-weight: 500;}
+    .form-group input {
+      width: 100%; padding: 10px; border-radius: 8px;
+      border: 1px solid var(--border); background: var(--bg-soft); color: var(--text);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .form-group input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 6px rgba(229,9,20,0.5);
+      outline: none;
+    }
+    .form-actions {text-align: center;}
+    .form-actions button {
+      padding: 10px 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .form-actions button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .error {color: #ff6b6b; font-size: 0.9rem; margin-top: 6px;}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">YIIPI</a>
+      <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="movies.html">Movies</a>
+        <a href="news.html">News</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="form-container">
+      <h2>Log In</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="login-username">Username</label>
+          <input type="text" id="login-username" name="username" required />
+          <div class="error" id="userError"></div>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" name="password" required />
+          <div class="error" id="passError"></div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">Next</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      let user = document.getElementById("login-username");
+      let pass = document.getElementById("login-password");
+      let valid = true;
+
+      if(user.value.trim() === ""){
+        document.getElementById("userError").textContent = "Username tidak boleh kosong";
+        user.style.animation = "shake 0.3s";
+        valid = false;
+      } else {
+        document.getElementById("userError").textContent = "";
+      }
+
+      if(pass.value.trim() === ""){
+        document.getElementById("passError").textContent = "Password tidak boleh kosong";
+        pass.style.animation = "shake 0.3s";
+        valid = false;
+      } else {
+        document.getElementById("passError").textContent = "";
+      }
+
+      if(valid){
+        alert("Log In berhasil (dummy)!");
+      }
+    });
+
+    // Animasi shake
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+        100% { transform: translateX(0); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>

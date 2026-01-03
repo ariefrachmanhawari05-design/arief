@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YIIPI — Home</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      background: url('images.webp') no-repeat center center fixed;
+      background-size: cover;
+      color: #e9edf7;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: -1;
+    }
+    .hero-lovealarm {
+      position: relative;
+      padding: 64px 0 96px;
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">YIIPI</a>
+      <nav class="menu">
+        <a class="active" href="index.html">Home</a>
+        <a href="movies.html">Movies</a>
+        <a href="news.html">News</a>
+      </nav>
+      <div class="auth">
+        <a href="login.html" class="btn btn-outline">Log in</a>
+        <a href="signin.html" class="btn btn-primary">Sign in</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-lovealarm">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h1 class="title">LOVE ALARM</h1>
+          <p class="subtitle">Love Alarm berkisah tentang teknologi kacau...</p>
+          <div class="actions">
+            <a href="#" class="btn btn-primary">Play Now</a>
+            <a href="movies.html" class="btn btn-secondary">Jelajah</a>
+          </div>
+        </div>
+        <figure class="poster">
+          <div class="poster-card">
+            <div class="poster-image">
+              <div class="mock-poster">
+                 <img src="images.jpg" alt="Love Alarm" height="100%" width="100%">
+              </div>
+            </div>
+            <figcaption class="poster-meta">
+              <span class="tag">NETFLIX</span>
+              <span class="tag">STUDIO DRAGON</span>
+            </figcaption>
+          </div>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer">
+      <small>© 2026 YIIPI. Semua hak cipta dilindungi.</small>
+    </div>
+  </footer>
+</body>
+</html>

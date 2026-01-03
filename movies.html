@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YIIPI — Movies</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Layout horizontal */
+    .card {
+      flex-direction: row;
+      align-items: flex-start;
+      opacity: 0; /* untuk animasi fade-in */
+      transition: opacity 0.6s ease;
+    }
+    .card-media {
+      flex: 0 0 220px;
+    }
+    .card-body {
+      flex: 1;
+      padding: 14px;
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    /* Animasi hover gambar */
+    .card img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    /* Kontrol pagination di tengah */
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    /* Animasi hover tombol */
+    .carousel-controls .btn {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .carousel-controls .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .page-indicator {
+      color: var(--muted);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">YIIPI</a>
+      <nav class="menu">
+        <a href="index.html">Home</a>
+        <a class="active" href="movies.html">Movies</a>
+        <a href="news.html">News</a>
+      </nav>
+      <div class="auth">
+        <a href="login.html" class="btn btn-outline">Log in</a>
+        <a href="signin.html" class="btn btn-primary">Sign in</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Konten utama -->
+  <main>
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Trending now</h2>
+
+        <div id="movieContainer">
+          <!-- Film 1 -->
+          <article class="card">
+            <div class="card-media">
+              <img src="unnamed.webp" alt="Godzilla vs Kong">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Godzilla vs Kong</h3>
+              <p class="card-desc">Godzilla vs. Kong adalah film laga monster tahun 2021 yang menampilkan pertarungan 
+epik antara dua titan legendaris, Godzilla dan Kong, untuk menentukan siapa raja 
+monster sejati, saat mereka dipaksa membantu manusia melawan ancaman baru dari
+ dalam Bumi, melibatkan konflik antara kekuatan alam dan konspirasi manusia yang 
+ingin memanfaatkan Titan untuk keuntungan merek</p>
+              <div class="card-meta"><span class="stars">★★★★★</span></div>
+              <a href="#" class="btn btn-primary btn-sm">watch</a>
+            </div>
+          </article>
+
+          <!-- Film 2 -->
+          <article class="card">
+            <div class="card-media">
+              <img src="MV5BNzRmY2VjYWUtMGRiZS00MzEyLWJjMTktZWQ0Nzk1NDNkNDU4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Haikyuu!! Movie 1">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Haikyuu!! The Movie 1</h3>
+              <p class="card-desc">Haikyuu!! The Movie 1: The End and the Beginning adalah film kompilasi yang merangkum 
+paruh pertama Musim Pertama Haikyuu!!, menceritakan kembali perjalanan awal Shoyo 
+Hinata dan Tobio Kageyama di SMA Karasuno, membentuk tim, serta momen-momen 
+penting hingga persiapan mereka menghadapi turnamen, termasuk pertemuan kembali 
+rival abadi mereka, Nekoma, dan pertandingan melawan Aoba Johsai, menjadi pengenalan 
+kuat bagi para penggemar sebelum menghadapi tantangan besar.  </p>
+              <div class="card-meta"><span class="stars">★★★★★</span></div>
+              <a href="#" class="btn btn-primary btn-sm">watch</a>
+            </div>
+          </article>
+
+          <!-- Film 3 -->
+          <article class="card">
+            <div class="card-media">
+              <img src="poster-film-avatar-fire-and-fish-1765946530373_34.jpeg" alt="Avatar 2">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Avatar 2</h3>
+              <p class="card-desc">avatar 3 melanjutkan kisah keluarga Jake Sully yang masih berduka, memperkenalkan suku 
+Na'vi baru yang agresif bernama Ash People (Klan Api) yang hidup di wilayah vulkanik dan 
+menolak Eywa, dipimpin oleh Varang yang kejam, bersekutu dengan Quaritch, serta 
+mengeksplorasi sisi gelap Pandora dan moralitas yang lebih abu-abu dengan konflik internal
+ Na'vi dan manusia.</p>
+              <div class="card-meta"><span class="stars">★★★★★</span></div>
+              <a href="#" class="btn btn-primary btn-sm">watch</a>
+            </div>
+          </article>
+
+          <!-- Film 4 -->
+          <article class="card">
+            <div class="card-media">
+              <img src="images (1).jpg" alt="Pacific Rim">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Pacific Rim</h3>
+              <p class="card-desc">Pacific Rim adalah waralaba fiksi ilmiah tentang pertarungan antara robot raksasa (Jaeger)
+ yang dikendalikan manusia melawan monster alien raksasa (Kaiju) yang muncul dari 
+portal bawah laut di Samudra Pasifik, fokus utama di film 2013 adalah pilot Raleigh Becket 
+yang harus mengatasi trauma masa lalu dan bekerja sama dengan Mako Mori untuk 
+mengendalikan Jaeger tua, Gipsy Danger, demi menyelamatkan dunia dari ancaman Kaiju.  </p>
+              <div class="card-meta"><span class="stars">★★★★★</span></div>
+              <a href="#" class="btn btn-primary btn-sm">watch</a>
+            </div>
+          </article>
+
+          <!-- Film 5 -->
+          <article class="card">
+            <div class="card-media">
+              <img src="MV5BYjU1ZGE4ZmYtODYwYy00Yzc0LWIwMmUtYmE5YjI4NmEzMTAwXkEyXkFqcGc@._V1_.jpg" alt="Ultraman: Rising">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Ultraman: Rising</h3>
+              <p class="card-desc">Ultraman: Rising adalah film animasi superhero tahun 2024 dari Netflix yang mengisahkan 
+Ken Sato, seorang atlet bisbol bintang Jepang yang terpaksa menjadi Ultraman berikutnya 
+dan harus mengurus bayi kaiju (monster) peninggalan musuh terbesarnya, menjadikannya
+ kisah père-anak yang mengharukan, aksi epik, serta perpaduan budaya Jepang-Amerika 
+dengan animasi memukau dari Industrial Light & Magic.</p>
+              <div class="card-meta"><span class="stars">★★★★★</span></div>
+              <a href="#" class="btn btn-primary btn-sm">watch</a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Kontrol pagination -->
+        <div class="carousel-controls">
+          <button class="btn btn-secondary" id="beforeBtn">Before</button>
+          <span id="pageIndicator" class="page-indicator"></span>
+          <button class="btn btn-secondary" id="nextBtn">Next</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer">
+      <small>© 2026 YIIPI. Semua hak cipta dilindungi.</small>
+    </div>
+  </footer>
+
+  <!-- Script Pagination -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const cards = document.querySelectorAll(".card");
+      let currentPage = 0;
+
+      function showPage(page) {
+        cards.forEach(card => {
+          card.style.display = "none";
+          card.style.opacity = 0;
+        });
+        if (cards[page]) {
+          cards[page].style.display = "flex";
+          setTimeout(() => {
+            cards[page].style.opacity = 1; // fade-in
+          }, 50);
+        }
+        document.getElementById("pageIndicator").textContent =
+          "Page " + (page + 1) + " of " + cards.length;
+      }
+
+      document.getElementById("beforeBtn").addEventListener("click", function() {
+        if (currentPage > 0) {
+          currentPage--;
+          showPage(currentPage);
+        }
+      });
+
+      document.getElementById("nextBtn").addEventListener("click", function() {
+        if (currentPage < cards.length - 1) {
+          currentPage++;
+          showPage(currentPage);
+        }
+      });
+
+      showPage(currentPage);
+    });
+  </script>
+</body>
+</html>
